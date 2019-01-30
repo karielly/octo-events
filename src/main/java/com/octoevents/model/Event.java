@@ -3,7 +3,6 @@ package com.octoevents.model;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,7 +30,7 @@ public class Event implements Serializable {
 	@Column(name = "ACTION")
 	private String action;
 	
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne()
     @JoinColumn(name = "FK_ISSUE")
 	private Issue issue;
 	

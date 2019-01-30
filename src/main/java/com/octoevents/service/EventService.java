@@ -10,6 +10,7 @@ import com.octoevents.dto.EventDTO;
 import com.octoevents.model.Event;
 import com.octoevents.model.Issue;
 import com.octoevents.repository.EventRepository;
+import com.octoevents.repository.IssueRepository;
 
 @Service
 public class EventService {
@@ -17,8 +18,13 @@ public class EventService {
 	@Autowired
 	private EventRepository eventRepository;
 	
+	@Autowired
+	private IssueRepository issueRepository;
+	
 	public EventDTO save(EventDTO eventDto) {
 		Event event = eventDto.mapperToEvent();
+		Issue issue = event.getIssue();
+		issueRepository.save(issue);
 		return eventRepository.save(event).getEventDTO();
 	}
 	
