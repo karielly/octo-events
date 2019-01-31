@@ -83,6 +83,6 @@ public class Event implements Serializable {
 	}
 	
 	public EventDTO getEventDTO() {
-		return EventDTO.of(id, action, issue.getIssueDTO());
+		return EventDTO.of(id, action, issue.getIssueDTO(), createdAt, updatedAt);
 	}
 }

@@ -1,6 +1,7 @@
 package com.octoevents.dto;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -14,13 +15,17 @@ public class EventDTO implements Serializable {
 	private Long id;
 	private String action;
 	private IssueDTO issueDto;
+	private Date createdAt;
+	private Date updatedAt;
 	
 	EventDTO(){}
 	
-	private EventDTO(Long id, String action, IssueDTO issueDto) {
+	private EventDTO(Long id, String action, IssueDTO issueDto, Date createdAt, Date updatedAt) {
 		this.id = id;
 		this.action = action;
 		this.issueDto = issueDto;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
 	}
 
 	public Long getId() {
@@ -36,12 +41,20 @@ public class EventDTO implements Serializable {
 		return action;
 	}
 	
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
+	
 	public Event mapperToEvent() {
 		return Event.of(action, issueDto.mapperToIssue());
 	}
 	
-	public static EventDTO of(Long id, String action, IssueDTO issueDto) {
-		return new EventDTO(id, action, issueDto);
+	public static EventDTO of(Long id, String action, IssueDTO issueDto, Date createdAt, Date updatedAt) {
+		return new EventDTO(id, action, issueDto, createdAt, updatedAt);
 	}
 	
 }
