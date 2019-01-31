@@ -25,6 +25,7 @@
   <li>Set JAVA_HOME to a Java 8 JDK</li>
   <li>Open the project folder in the terminal</li>
   <li>Execute
+	  </br>
 	  Linux
 	  <ul>
 		  <li>./mvnw clean install</li>
