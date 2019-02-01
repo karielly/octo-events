@@ -4,7 +4,7 @@
 
 <a href="https://octo-events-java.herokuapp.com/issues/2/events">Copy and cole in postman to start the games!</a>
 
-## Are you hardcore?! let's go!
+## Are you hard-coding?! let's go!
 
 ### Requirements:
 
